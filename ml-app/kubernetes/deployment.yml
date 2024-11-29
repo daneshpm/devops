@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-app
+  template:  # Fixed indentation for 'template' and its children
+    metadata:
+      labels:
+        app: ml-app
+    spec:
+      containers:
+      - name: ml-app
+        image: danesh1207/ml-app:latest
+        ports:
+        - containerPort: 5000
